@@ -1,0 +1,28 @@
+N;Sum;Place;C;S;R;PD
+;;;A B C D E F G H I J K;A B C D E F G H I J K;A B C D E F G H I J K;A B C D E F G H I J K
+29;39;1;XXXXXXXXX-X;XXXXXXXXX--;XXXXXXXXX-X;XXXXXXXXX-X
+13;36;2;XXXXXXXX-XX;XX-XXXXX-XX;X-XXXXX--XX;XX-XXXXX-XX
+37;35;3 - 4;XXXXXXX-XX-;XXXXXXX-XXX;X-XXXXXXX--;X-XXXXX-X-X
+72;35;3 - 4;XX-XXXX-XXX;XX-XXXX-XXX;X--XXXXXXXX;XX-XXXX-XX-
+43;28;5 - 7;X--XXXX-XX-;X-X-XXXXXX-;XXXXX-XX-X-;--X-X-X-XX-
+79;28;5 - 7;XXX-XXX-X-X;XXX--X--X-X;XXX-XX-X--X;XXX-XXXX---
+103;28;5 - 7;XXX-XX--X--;XX-XXX-XX--;XX-XXXXXX--;XXXXXX--X--
+10;27;8;X-XXX---XX-;X-XXX-XX-X-;X--XX--X-X-;XXXXXXX--XX
+126;25;9;XXX-XX--X--;X-XXXX--X--;XXXXXX-XX--;X-XX-X--X--
+61;23;10;---XX-XX-XX;----X-XXXXX;-X--X-XX-XX;------XXXXX
+65;21;11;XXX-X----X-;X-XX-----X-;X-X-XXX--X-;XXXX-X---X-
+123;20;12;XX-X--XX---;XXXXX-XX---;XXX---X----;XX-----XX--
+28;19;13 - 14;--X--X-XXX-;--X--X--XX-;-XX--X--XX-;-XX-----XXX
+88;19;13 - 14;---X---X--X;XX-X------X;XX-X---X-XX;X--XX--XX-X
+102;17;15;----X--XXXX;----X--X-XX;----X--XXXX;----X--X-X-
+84;15;16 - 17;-------X-X-;-X----X--XX;-X----X-XXX;-X----X--XX
+117;15;16 - 17;---X-X-XX--;---X---XX--;---X-X--X--;X--X---XX-X
+19;13;18 - 21;------X-X--;------X-X-X;-----XXXX--;-----XXX--X
+32;13;18 - 21;-X----X--XX;------X--XX;------X-XXX;------X--X-
+59;13;18 - 21;-X-X------X;-X---X-----;-X-X-----XX;-X--XX---X-
+75;13;18 - 21;--X--X----X;--X--X-XX-X;--X-------X;--X----X--X
+64;11;22 - 23;X-X--X-----;--X--X-----;--X--X--X--;-XX--X-----
+124;11;22 - 23;------XX--X;----X-X---X;----------X;--X-X-X---X
+54;10;24;-X----XX--X;-X-----X---;-----------;---X---XXX-
+132;9;25;--XX-----X-;--XX-----X-;--XX-------;---X-------
+48;5;26;-------X---;-X-----X---;-X---------;-------X---

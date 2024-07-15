@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackpool</title>
+<style>
+  body {
+    background: #d8f3dc; 
+  }
+  .title, .subtitle {
+    color: #081c15;
+    text-align: center;
+  }
+  .title {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 40px 0 10px;
+  }
+  .subtitle {
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+  .home-table-container, .small-home-table-container {
+    margin: auto;
+    position: relative;
+  }
+  .home-table-container {
+    width: 50%;
+  }
+  .small-home-table-container {
+    top: 400px;
+    left: 80px;
+    width: 40%;
+    position: absolute;
+  } 
+  th, td {
+    padding: 10px;
+    border: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  th {
+    font-size: 20px;
+    background-color: #2d6a4f;
+  }
+  td:nth-child(1) {
+    background-color: #74c69d;
+  }
+  td:nth-child(3) {
+    background-color: #40916c;
+  }
+
+
+  #home-button-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 50px 70px 0 0;
+  }
+  .home-button {
+    display: block;
+    margin: 10px 0 0 10px;
+    width: 150px;
+    height: 50px;
+    padding: 10px 20px;
+    background-color: #2d6a4f;
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: Times;
+    cursor: pointer;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  
+
+</style>
+<style>
+  #round-table-container{
+    max-width: 90%; 
+  overflow-x: auto;
+  margin: 0 auto; 
+  padding: 10px;
+  }
+
+  #controls{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+   margin-bottom: 5px;
+    max-width: 100%;
+  }
+
+  .round-table {
+    border-collapse: collapse;
+    width: auto; 
+    margin: 0 auto; 
+  }
+
+  .round-table th, .round-table td{
+    padding: 6px;
+    vertical-align: bottom;
+    text-align: center;
+    border: 1px solid black;
+    cursor: pointer;
+    width:15px;
+  }
+
+  .sub-round-table td {
+  height: 3px;
+ 
+  }
+
+  .round-table tbody td {
+    background-color: #e5e5e5;
+  }
+
+  .round-table tbody td:nth-child(4) {
+    background-color: #ffadad;
+  }
+
+  .round-table tbody td:nth-child(5) {
+    background-color: #fdffb6;
+  }
+
+  .round-table thead th:nth-child(5) {
+    background-color: #ffeb3b;
+  }
+
+  .round-table tbody td:nth-child(6) {
+    background-color: #caffbf;
+  }
+
+  .round-table tbody td:nth-child(7) {
+    background-color: #9bf6ff;
+  }
+
+  .round-table tbody td:nth-child(8) {
+    background-color: #ffc6ff;
+  }
+
+  .round-table thead th {
+    background-color: #d9d9d9;
+  }
+
+  .round-table thead th:nth-child(4) {
+    background-color: #ff7373;
+  }
+
+  .round-table thead th:nth-child(6) {
+    background-color: #80ffcc;
+  }
+
+  .round-table thead th:nth-child(7) {
+    background-color: #73aaff;
+  }
+
+  .round-table thead th:nth-child(8) {
+    background-color: #ff80bf;
+  }
+
+  #number-filter {
+    max-height: 100px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    overflow-y: auto;
+    margin: 10px auto;
+  }
+
+  #number-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #number-list li {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: calc(20% - 10px);
+    margin-right: 5px;
+  }
+
+  .info-label {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: white;
+    padding: 5px;
+    border: 2px solid #ccc;
+    font-size: 12px;
+    pointer-events: none;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .filter-item {
+    width:20%;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+
+  #search-input{
+    width:30%;
+    font-size: 14px;
+  }
+
+  .custom-select-wrapper {
+    padding: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select-trigger {
+    display: flex;
+    height: 25px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    user-select: none;
+    cursor: pointer;
+}
+
+.custom-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.custom-option {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-option:hover {
+    background-color: #f0f0f0;
+}
+
+#resetButton{
+  display: block;
+  font-size: 14px;
+  padding: 5px;
+  width:50%;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Times;
+}
+
+.subsubtitle{
+	font-size: 18px;
+	color: gray;
+}
+</style>
+<style>
+  .summary{
+    margin-top: -10%;
+    margin-left: -25%;
+    margin-bottom: 25%;
+  }
+  #semifinal{
+    margin-left:-37%;
+  }
+  #finalContainer{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-left: -4%;
+    gap: 1%;
+  }
+
+  #changeDanceList{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    gap: 30px; 
+  }
+
+  #changeDanceList button{
+    min-width: 100%;
+    font-size: 14px;
+    font-family: Times;
+    height: 5%;
+  }
+  #finalVis{
+    width: 80%;
+    
+  }
+
+</style>
+<script type="text/javascript" src="https://d3js.org/d3.v7.js"></script>
+</head>
+<body>
+<div class="header">
+  <div class="title">The Open Worlds Amateur - Latin 2023</div>
+  <div class="subtitle">Final Ranking</div>
+</div>
+<div id="controls">
+  <input type="text" id="search-input" placeholder="Search for participant's name" class="filter-item"> </input>
+    <div id="filter1" class="filter-item">
+    </div>
+    <div id="filter2" class="filter-item">
+    </div>
+    <div id="filter3" class="filter-item">
+    </div>
+  </div>
+<button id="resetButton">Reset</button>
+</div>
+<div id="round-table-container" class="round-table"></div>
+<div id="home-visualization" class="home-table-container"></div>
+<div id="legend"></div>
+<div id="finalContainer">
+<div id="changeDance">
+  <div id="changeDanceList">
+  <button onclick="drawFinal(chacha, 'Chachacha', false)">Chachacha</button>
+  <button onclick="drawFinal(samba, 'Samba', false)">Samba</button>
+   <button onclick="drawFinal(rumba, 'Rumba', false)">Rumba</button>
+  <button onclick="drawFinal(paso, 'Paso Doble', false)">Paso Doble</button>
+  <button onclick="drawFinal(jive, 'Jive', false)">Jive</button>
+   <button onclick="drawTotalFinal('Total', false)">Total</button>
+  </div>
+</div>
+<div id="finalVis"></div>
+</div>
+<div id="home-button-container">
+  <button class="home-button" onclick="drawRound('http://localhost:3333/1-32F.csv', 'First Round', 30, 'Select 97 from 123')">First Round</button>
+  <button class="home-button" onclick="drawRound('http://localhost:3333/1-16F.csv', 'Second Round', 19, 'Select 49 from 97')">Second Round</button>
+  <button class="home-button" onclick="drawRound('http://localhost:3333/1-8F.csv', 'Third Round', 20, 'Select 26 from 49')">Third Round</button>
+  <button class="home-button" onclick="drawRound('http://localhost:3333/1-4F.csv', 'Fourth Round', 20, 'Select 12 from 26')">Fourth Round</button>
+  <button class="home-button" onclick="drawRound('http://localhost:3333/1-2F.csv', 'Semifinal', 25, 'Select 7 from 12')">Semifinal</button>
+  <button class="home-button" onclick="drawTotalFinal('Total', true)">Final</button>
+  <button class="home-button" onclick="rankingPage()">Ranking</button>
+</div>
+<div id="small-home-visualization" class="small-home-table-container"></div>
+<script type="text/javascript">
+
+
+function rankingPage(){
+  d3.select("#home-button-container")
+    .transition()
+    .duration(1000)
+    .style("margin", "50px 70px 0 0");
+
+  var buttons = d3.selectAll(".home-button");
+   buttons.each(function(){
+
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .style("height", "50px")
+      .style("margin", "10px 0 0 10px");
+    
+    });
+
+  
+  d3.select("#small-home-visualization").transition()
+                                .duration(1000)
+                                .style("opacity", 1)
+                                .style("display", null)
+                                .style("visibility", "visible");
+  d3.select("#home-visualization").selectAll("*").transition()
+                                .duration(1000)
+                                .style("opacity", 1)
+                                .style("display", null)
+                                .style("visibility", "visible");
+  d3.select("#home-visualization").transition()
+                                .duration(1000)
+                                .style("opacity", 1)
+                                .style("display", null)
+                                .style("visibility", "visible");
+
+
+  d3.selectAll(".summary").style("display", "none")
+  d3.selectAll(".summary").selectAll("*").remove();
+
+
+  d3.select("#home-visualization").selectAll("tr").on("click", handleClick);
+  if(selectedRow !== null && selectedRow !== undefined){
+  difference = document.querySelector(".title").getBoundingClientRect().top - selectedRow.node().getBoundingClientRect().top;
+ selectedRow.style("position", "relative")
+            .style("top", null);
+          
+  selectedRow = null;
+}
+   d3.selectAll(".title, .subtitle")
+      .transition().duration(1000)
+      .style("opacity", 1)
+      .style("visibility", null);
+  var toHide = d3.selectAll("#controls , #round-table-container, #resetButton, #finalVis, #changeDance, #legend");
+  toHide.each(function() {
+  d3.select(this).style("visibility", "hidden");
+   d3.select(this).style("display", "none");
+});
+  var toRemove = d3.selectAll("#search-input, #filter1, #filter2, #filter3, #round-table-container");
+  toRemove.each(function(){
+    d3.select(this).selectAll("*").style("visibility", "hidden");
+    d3.select(this).selectAll("*").remove();
+  })
+  d3.selectAll(".subtitle").text('Final Ranking');
+}
+
+
+  var toHide = d3.selectAll("#controls , #round-table-container, #resetButton, #finalVis, #changeDance, #legend");
+  toHide.each(function() {
+  d3.select(this).style("display", "none");
+  d3.select(this).style("visibility", "hidden");
+});
+  
+  let selectedRow;
+
+  function handleClick() {
+    d3.select(this).on("click", null);
+    var rowsToHide = d3.select("#home-visualization").selectAll("tr:not(:hover)");
+    rowsToHide.transition()
+              .duration(1000)
+              .style("opacity", 0)
+              .style("display", 'none')
+              .style("visibility", "hidden");      
+    selectedRow = d3.select(this).selectAll("td");
+    initialPos = selectedRow.node().getBoundingClientRect().top;
+    difference = document.querySelector(".title").getBoundingClientRect().top - d3.select("#home-visualization").node().getBoundingClientRect().top;
+    selectedRow.style("position", "relative")
+               .transition().duration(1000)
+               .style("top", difference + "px");
+    couplePosition = selectedRow.nodes()[0];
+    couplePosition.style.width = "100px";
+    coupleNumber = selectedRow.nodes()[2];
+     console.log(coupleNumber.innerText);
+    coupleNumber.style.width = "100px";
+    console.log(coupleNumber);
+    coupleName = selectedRow.nodes()[1];
+    coupleName.style.width = "700px";
+    
+
+
+   
+
+    d3.selectAll(".title, .subtitle, #small-home-visualization")
+      .transition().duration(1000)
+      .style("opacity", 0)
+      .style("visibility", "hidden");
+
+    
+
+    d3.select("#home-visualization").append("div").attr("id", "firstRound").attr("class", "summary");
+    drawRoundSingleNumber('http://localhost:3333/1-32F.csv', 'First Round', coupleNumber.innerText, '#firstRound');
+
+    d3.select("#home-visualization").append("div").attr("id", "secondRound").attr("class", "summary");
+    drawRoundSingleNumber('http://localhost:3333/1-16F.csv', 'Second Round', coupleNumber.innerText, '#secondRound');
+    d3.select("#home-visualization").append("div").attr("id", "thirdRound").attr("class", "summary");
+    drawRoundSingleNumber('http://localhost:3333/1-8F.csv', 'Third Round', coupleNumber.innerText, '#thirdRound');
+    d3.select("#home-visualization").append("div").attr("id", "fourthRound").attr("class", "summary");
+    drawRoundSingleNumber('http://localhost:3333/1-4F.csv', 'Fourth Round', coupleNumber.innerText, '#fourthRound');
+    d3.select("#home-visualization").append("div").attr("id", "semifinal").attr("class", "summary");
+    drawRoundSingleNumber('http://localhost:3333/1-2F.csv', 'Semifinal', coupleNumber.innerText, '#semifinal');
+    d3.select("#home-visualization").append("div").attr("id", "final").attr("class", "summary");
+    drawSingleFinal(coupleNumber.innerText, 'Final');
+  }
+
+  function createTable(containerId, data, headers, columnMappings) {
+    var container = d3.select(containerId);
+    var table = container.append("table").attr("class", "table");
+    table.append("thead").append("tr").selectAll("th")
+         .data(headers).enter().append("th").text(d => d);
+    var tbody = table.append("tbody");
+    var rows = tbody.selectAll("tr").data(data).enter().append("tr");
+    rows.selectAll("td").data(row => headers.map(col => ({ column: col, value: row[columnMappings[col]] })))
+        .enter().append("td").text(d => d.value);
+    if (containerId === "#home-visualization") rows.on("click", handleClick);
+  }
+  let ranking;
+
+  d3.dsv(";", "http://localhost:3333/CLASSIFICA.csv").then(data => {
+    ranking = data.map(d => ({ ...d, Participant: d.Participant.toUpperCase() }));
+    var columnMappings = { "Position": "Place", "Couple": "Participant", "Number": "N" };
+    createTable("#home-visualization", ranking, ["Position", "Couple", "Number"], columnMappings);
+  });
+  let judges;
+  d3.dsv(";", "http://localhost:3333/GIUDICI.csv").then(data => {
+    judges = data.map(d => ({ nome: d.Nome, lett: d.Lettera }));
+    var columnMappings = { "Judges": "nome" };
+    createTable("#small-home-visualization", judges, ["Judges"], columnMappings);
+  });
+</script>
+<script type="text/javascript">
+
+  
+  function convertToJson(value) {
+    var result = {};
+    for (var i = 0; i < value.length; i++) {
+      result[String.fromCharCode(65 + i)] = value.charAt(i);
+    }
+    return result;
+  }
+
+
+function drawRoundSingleNumber(doc, name, number, divId){
+  console.log(divId)
+
+  d3.select("#home-button-container")
+    .transition()
+    .duration(1000)
+    .style("margin", "20px 20px 0 0");
+
+  var buttons = d3.selectAll(".home-button");
+   buttons.each(function(){
+
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .style("height", "30px")
+      .style("margin", "0");
+    
+    });
+
+  d3.dsv(";", doc).then(function(data) {
+    
+     toDraw = data.filter(function(d){
+      return d.N === number});
+    
+     if(toDraw !== null && toDraw !== undefined){
+
+    var danceMapping = { 'C': 'ChaChaCha', 'S': 'Samba', 'R': 'Rumba', 'PD': 'PasoDoble', 'J': 'Jive' };
+    var dances = Object.keys(toDraw[0]).slice(3);
+    var columns = dances.map(function(d) { return danceMapping[d]; });
+    columns.unshift("Number", "Position", "Sum");
+    var columnMapping = { 'Number': 'N', 'Sum': 'Sum', 'Position': 'Place', 'Samba': 'S', 'ChaChaCha': 'C', 'Rumba': 'R', 'PasoDoble': 'PD', 'Jive': 'J' };
+
+    Object.keys(danceMapping).forEach(function(field) {
+      if (Object.keys(data[0]).includes(field)) {
+        toDraw.forEach(function(d) {
+          d[field] = convertToJson(d[field]);
+        });
+      }
+    });
+    var colorMapping = { "#ffadad": "#ff7373", "#fdffb6": "#ffeb3b", "#caffbf": "#80ffcc", "#9bf6ff": "#73aaff", "#ffc6ff": "#ff80bf" };
+
+    var roundTableContainer = d3.select(divId);
+   
+    var roundTable = roundTableContainer.append("table").attr("class", "round-table");
+
+    roundTable.append("caption")
+              .style("font-size", "20px")
+              .style("font-weight", "bold")
+              .style("margin-bottom", "10px")
+              .text(name);
+    var thead = roundTable.append("thead").append("tr");
+    thead.selectAll("th").data(columns).enter().append("th").text(function(d) { return d; });
+
+    var tbody = roundTable.append("tbody");
+    var rows = tbody.selectAll("tr").data(toDraw).enter().append("tr").style("opacity", "0");
+    rows.transition().duration(1000).style("opacity", "1");
+    rows.selectAll("td").data(function(row) {
+      return columns.map(function(column) {
+        return { column: column, value: row[columnMapping[column]] };
+      });
+    }).enter().append("td").html(function(d) {
+      if (typeof d.value === "object") {
+        var subRoundTable = d3.create("table").attr("class", "sub-round-table");
+        var subRows = subRoundTable.append("tbody").append("tr");
+        var lightColor = d3.color(d3.select(this).style("background-color"));
+        Object.entries(d.value).forEach(function([key, value]) {
+          var cell = subRows.append("td").attr("judge", key);
+          cell.style("background-color", value === "X" ? colorMapping[lightColor.formatHex()] : lightColor);
+        });
+        return subRoundTable.node().outerHTML;
+      } else {
+        return d.value;
+      }
+    });
+
+}
+
+
+d3.selectAll(".sub-round-table td").on("mouseover", function() {
+        var current = d3.select(this).attr("judge");
+        var numberLabel = d3.select(this).append("div").attr("class", "info-label").text(function() {
+          var elem = judges.find(function(d) { return d.lett === current; });
+          return elem.nome;
+        }).style("height", "10px");
+        numberLabel.transition().duration(200).style("opacity", 1);
+      }).on("mouseout", function() {
+        d3.select(this).selectAll(".info-label").remove();
+      });
+});
+
+ 
+
+}
+
+
+
+function drawSingleFinal(number, title){
+  marginLeft = window.innerWidth/2 -500;
+  const x = d3.scaleBand()
+      .range([marginLeft, width - marginRight])
+      .paddingInner(0.1);
+const y = d3.scaleLinear()
+      .rangeRound([height - marginBottom, marginTop]);
+  svg.selectAll("*").remove();
+  svgLegend.selectAll("*").remove();
+  if(chacha.find(row =>row.num === number) !== undefined){
+  var toShow = d3.selectAll("#finalVis, #legend");
+  toShow.each(function() {
+  d3.select(this).transition().duration(1000)
+      .style("opacity", 1)
+      .style("display", null)
+      .style("visibility", "visible");
+});
+
+  coupleDataset = [
+    {'dance':'Chachacha', ...chacha.find(row =>row.num === number)},
+    {'dance':'Samba', ...samba.find(row => row.num === number)},
+    {'dance':'Rumba', ...rumba.find(row => row.num === number)},
+    {'dance':'Paso Doble', ...paso.find(row => row.num === number)},
+    {'dance':'Jive', ...jive.find(row => row.num === number)}
+  ];
+  const singlePosition = Array.from(new Set(chacha.map(function(d) { return d.pos; }))).sort((a, b) => a - b);
+
+
+const indexData = coupleDataset.map(d => {
+  const counts = singlePosition.reduce((posCounts, pos) => {
+    const count = Object.values(d).slice(3).filter(value => value === pos).length;
+    posCounts[pos] = count ;
+    return posCounts;
+  }, {});
+  return { dance: d.dance, pos: counts };
+});
+
+
+
+const index = d3.index(indexData, d => d.dance);
+
+
+const stackedData = d3.stack()
+  .keys(singlePosition) 
+  .value((d, key) => d.pos[key]) 
+  (indexData);
+
+svg.selectAll(".x-axis").remove();
+svg.selectAll(".y-axis").remove();
+
+x.domain(coupleDataset.map(d => d.dance));
+
+y.domain([0, d3.max(stackedData, d => d3.max(d, d => d[1]))]);
+
+
+
+const formatValue = x => isNaN(x) ? "N/A" : x.toLocaleString("en");
+
+
+svg.append("g")
+   .selectAll("g")
+   .data(stackedData)
+   .join("g")
+   .attr("fill", d => colors[d.key - 1])
+   .selectAll("rect")
+   .data(d => d.map(v => (v.key = d.key, v)))
+   .join("rect")
+   .attr("x", d => x(d.data.dance))
+   .attr("y", d => y(d[1]))
+   .attr("width", x.bandwidth())
+   .on("mouseover", function(event, d) {
+          d3.select(this).attr("fill", function() {
+          var vecchio = colors[d.key - 1];
+           return colorMapping[vecchio];
+           }); 
+           dataRow = coupleDataset.find(c => c['dance'] === d.data.dance);
+           const giudici = Object.keys(dataRow).slice(3).filter(key => dataRow[key] === d.key);
+          const barX = x(d.data.dance) + x.bandwidth() / 2;
+          const barY = y(d[1]) + (y(d[0]) - y(d[1])) / 2;
+          giudici.forEach((p, i) => {
+             const barY = (y(d[1]) + (y(d[0]) - y(d[1])) / 2) - ((giudici.length - 1) / 2) * 22;
+            svg.append("text")
+            .attr("class", "bar-text")
+            .attr("x", barX)
+            .attr("y", barY + i * 22) 
+            .attr("dy", "0.35em")
+            .attr("text-anchor", "middle")
+            .style("font-size", '14px')
+            .text(function() {
+                elem = judges.find(k => k['lett'] === p)
+                return elem.nome;
+            });
+    });
+})
+.on("mouseout", function() {
+    d3.select(this).attr("fill", d => colors[d.key - 1]); 
+    svg.selectAll(".bar-text").remove(); 
+})
+.transition()
+.duration(1000)
+.attr("height", d => y(d[0]) - y(d[1]));
+
+svg.append("g")
+      .attr("transform", `translate(0,${height - marginBottom})`)
+      .attr("class", "x-axis")
+      .call(d3.axisBottom(x).tickSizeOuter(0))
+      .call(g => g.selectAll(".domain").remove());
+
+svg.append("g")
+      .attr("transform", `translate(${marginLeft},0)`)
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+      .call(g => g.selectAll(".domain").remove());
+
+
+
+const svgTitle = svgLegend.select(".chart-title");
+if (!svgTitle.empty()) {
+      
+        svgTitle.text(title);
+    } else {
+     
+        svgLegend.append("text")
+            .attr("class", "chart-title")
+            .attr("transform", "translate("+(window.innerWidth/2-35)+", 15)")
+            .style("font-size", "20px")
+            .style("font-weight", "bold")
+            .text(title);
+    }
+              
+
+const legend = svgLegend.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate("+(window.innerWidth/2-190)+", 30)"); 
+
+legend.selectAll(".legendItem")
+    .data(colors)
+    .enter().append("g")
+    .attr("class", "legendItem")
+    .attr("transform", (d, i) => "translate(" + i * 50 + ",0)");
+console.log(svgLegend);
+
+legend.selectAll(".legendItem")
+    .append("rect")
+    .attr("width", 50)
+    .attr("height", 18)
+    .style("fill", d => d);
+
+
+var i = 0;
+legend.selectAll(".legendItem")
+    .append("text")
+    .attr("x", 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "start")
+    .text(function(){i = i+1; return i;}); 
+  
+
+}
+
+}
+
+
+
+
+
+function drawRound(doc, name, toNextRound, selection){
+
+  d3.select("#home-button-container")
+    .transition()
+    .duration(1000)
+    .style("margin", "20px 20px 0 0");
+
+  var buttons = d3.selectAll(".home-button");
+   buttons.each(function(){
+
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .style("height", "30px")
+      .style("margin", "0");
+    
+    });
+
+  var toHide = d3.selectAll("#home-visualization, #small-home-visualization, #finalVis, #changeDance, #legend");
+  toHide.each(function() {
+  d3.select(this).transition().duration(1000)
+      .style("opacity", 0)
+      .style("display", "none")
+      .style("visibility", "hidden");
+});
+  var toShow = d3.selectAll("#controls , #round-table-container, #resetButton, .title, .subtitle");
+  toShow.each(function() {
+  d3.select(this).transition().duration(1000)
+      .style("opacity", 1)
+      .style("display", null)
+      .style("visibility", "visible");
+});
+  var toRemove = d3.selectAll("#search-input, #filter1, #filter2, #filter3, #round-table-container");
+  toRemove.each(function(){
+    d3.select(this).selectAll("*").transition().duration(1000).style("visibility", "hidden");
+    d3.select(this).selectAll("*").remove();
+  })
+  d3.selectAll(".subtitle").html(name + "<br/> <span class='subsubtitle'>" + selection+" - Points to next round: " + toNextRound +"</span");
+  
+
+  d3.dsv(";", doc).then(function(data) {
+    
+    data.shift();
+
+    var danceMapping = { 'C': 'ChaChaCha', 'S': 'Samba', 'R': 'Rumba', 'PD': 'PasoDoble', 'J': 'Jive' };
+    var dances = Object.keys(data[0]).slice(3);
+    var columns = dances.map(function(d) { return danceMapping[d]; });
+    columns.unshift("Number", "Position", "Sum");
+    var columnMapping = { 'Number': 'N', 'Sum': 'Sum', 'Position': 'Place', 'Samba': 'S', 'ChaChaCha': 'C', 'Rumba': 'R', 'PasoDoble': 'PD', 'Jive': 'J' };
+
+    Object.keys(danceMapping).forEach(function(field) {
+      if (Object.keys(data[0]).includes(field)) {
+        data.forEach(function(d) {
+          d[field] = convertToJson(d[field]);
+        });
+      }
+    });
+    var colorMapping = { "#ffadad": "#ff7373", "#fdffb6": "#ffeb3b", "#caffbf": "#80ffcc", "#9bf6ff": "#73aaff", "#ffc6ff": "#ff80bf" };
+
+    var roundTableContainer = d3.select("#round-table-container");
+    var roundTable = roundTableContainer.append("table").attr("class", "round-table");
+
+    var thead = roundTable.append("thead").append("tr");
+    thead.selectAll("th").data(columns).enter().append("th").text(function(d) { return d; });
+
+    var tbody = roundTable.append("tbody");
+    var rows = tbody.selectAll("tr").data(data).enter().append("tr").style("opacity", "0");
+    rows.transition().duration(1000).style("opacity", "1");
+    rows.selectAll("td").data(function(row) {
+      return columns.map(function(column) {
+        return { column: column, value: row[columnMapping[column]] };
+      });
+    }).enter().append("td").html(function(d) {
+      if (typeof d.value === "object") {
+        var subRoundTable = d3.create("table").attr("class", "sub-round-table");
+        var subRows = subRoundTable.append("tbody").append("tr");
+        var lightColor = d3.color(d3.select(this).style("background-color"));
+        Object.entries(d.value).forEach(function([key, value]) {
+          var cell = subRows.append("td").attr("judge", key);
+          cell.style("background-color", value === "X" ? colorMapping[lightColor.formatHex()] : lightColor);
+        });
+        return subRoundTable.node().outerHTML;
+      } else {
+        return d.value;
+      }
+    });
+
+    /* PRIMO FILTRO (NUMERO) */
+
+    var uniqueNumbers = Array.from(new Set(data.map(function(d) { return d.N; }))).sort((a, b) => a - b);
+    
+  
+      const selectNumberWrapper = d3.select('#filter1').attr('class', 'custom-select-wrapper');
+      const selectNumberTrigger = selectNumberWrapper.append('div').attr('class', 'custom-select-trigger').text('Filter by Number');
+      const optionsNumberContainer = selectNumberWrapper.append('div').attr('class', 'custom-options');
+
+      optionsNumberContainer.selectAll('.custom-option')
+                      .data(uniqueNumbers)
+                      .enter()
+                      .append('label')
+                      .attr('class', 'custom-option')
+                      .each(function (d){
+                        d3.select(this)
+                          .append('input')
+                          .attr('type', 'checkbox')
+                          .attr('value', d);
+                      d3.select(this).append('span').text(d);
+                      });
+
+      const numberCheckboxes = optionsNumberContainer.selectAll('input[type=checkbox');
+
+      selectNumberTrigger.on('click', function(){
+        const isVisible = optionsNumberContainer.style('display') === 'block';
+
+        optionsNumberContainer.style('display', isVisible ? 'none' : 'block');
+      });
+
+      numberCheckboxes.on("change", function() {
+        var selectedOptionsPlace = optionsPositionContainer.selectAll("input:checked").nodes().map(n => n.value);
+        var selectedOptionsNumber = optionsNumberContainer.selectAll("input:checked").nodes().map(n => n.value);
+        var selectedOptions = selectedOptionsPlace.concat(selectedOptionsNumber);
+        
+        rows.style("display", function(row) {
+          return selectedOptions.length === 0 || selectedOptionsPlace.includes(row.Place) || selectedOptionsNumber.includes(row.N) ? null : "none";
+        });
+});
+      
+      /* SECONDO FILTRO (POSIZIONE) */
+
+       var uniquePositions = Array.from(new Set(data.map(function(d) { return d.Place; }))).sort((a, b) => a - b);
+      const selectPositionWrapper = d3.select('#filter2').attr('class', 'custom-select-wrapper');
+      const selectPositionTrigger = selectPositionWrapper.append('div').attr('class', 'custom-select-trigger').text('Filter by Position');
+      const optionsPositionContainer = selectPositionWrapper.append('div').attr('class', 'custom-options');
+
+      optionsPositionContainer.selectAll('.custom-option')
+                      .data(uniquePositions)
+                      .enter()
+                      .append('label')
+                      .attr('class', 'custom-option')
+                      .each(function (d){
+                        d3.select(this)
+                          .append('input')
+                          .attr('type', 'checkbox')
+                          .attr('value', d);
+                      d3.select(this).append('span').text(d);
+                      });
+
+      const positionCheckboxes = optionsPositionContainer.selectAll('input[type=checkbox');
+
+      selectPositionTrigger.on('click', function(){
+        const isVisible = optionsPositionContainer.style('display') === 'block';
+
+        optionsPositionContainer.style('display', isVisible ? 'none' : 'block');
+      });
+
+      positionCheckboxes.on("change", function() {
+        var selectedOptionsPlace = optionsPositionContainer.selectAll("input:checked").nodes().map(n => n.value);
+        var selectedOptionsNumber = optionsNumberContainer.selectAll("input:checked").nodes().map(n => n.value);
+        var selectedOptions = selectedOptionsPlace.concat(selectedOptionsNumber);
+        rows.style("display", function(row) {
+          return selectedOptions.length === 0 || selectedOptionsPlace.includes(row.Place) || selectedOptionsNumber.includes(row.N) ? null : "none";
+        });
+});
+      
+
+/* TERZO FILTRO (GIUDICE) */
+
+  input = d3.select("#search-input");
+  input.on("keyup", function(event){
+    var selectedNumbers = [];
+    filter = input.property("value").toUpperCase();
+    ranking.forEach(function (d){
+        cp = d.Participant;
+        console.log(cp + cp.includes(filter));
+        if(cp.includes(filter)){
+          selectedNumbers.push(d.N);
+        }
+    })
+     rows.style("display", function(row) {
+          return selectedNumbers.length === 0 || selectedNumbers.includes(row.N) ? null : "none";
+        });
+     console.log("dentro");
+
+  });
+
+
+ var uniqueJudge = Array.from(new Set(judges.map(function(d) { return d; }))).sort((a, b) => a.name - b.name);
+      const selectJudgeWrapper = d3.select('#filter3').attr('class', 'custom-select-wrapper');
+      const selectJudgeTrigger = selectJudgeWrapper.append('div').attr('class', 'custom-select-trigger').text('Filter by Judge');
+      const optionsJudgeContainer = selectJudgeWrapper.append('div').attr('class', 'custom-options');
+
+      optionsJudgeContainer.selectAll('.custom-option')
+                      .data(uniqueJudge)
+                      .enter()
+                      .append('label')
+                      .attr('class', 'custom-option')
+                      .each(function (d){
+                        d3.select(this)
+                          .append('input')
+                          .attr('type', 'checkbox')
+                          .attr('value', d.lett);
+                      d3.select(this).append('span').text(d.nome);
+                      });
+
+      const judgeCheckboxes = optionsJudgeContainer.selectAll('input[type=checkbox');
+
+      selectJudgeTrigger.on('click', function(){
+        const isVisible = optionsJudgeContainer.style('display') === 'block';
+
+        optionsJudgeContainer.style('display', isVisible ? 'none' : 'block');
+      });
+
+      judgeCheckboxes.on("change", function() {
+      var selectedOptions = optionsJudgeContainer.selectAll("input:checked").nodes().map(n => n.value);
+      d3.selectAll(".sub-round-table td").each(function (){
+      elem = d3.select(this);
+      elem.style("opacity", function(row) {
+          return selectedOptions.length === 0 || selectedOptions.includes(elem.attr("judge")) ? 1 : 0;
+        });
+      });
+});
+
+      var reset = d3.select("#resetButton").on("click", function(d){
+        optionsJudgeContainer.selectAll('input[type=checkbox').each( function(d){
+          d3.select(this).property("checked", false);
+        })
+        optionsNumberContainer.selectAll('input[type=checkbox').each( function(d){
+          d3.select(this).property("checked", false);
+        })
+        optionsPositionContainer.selectAll('input[type=checkbox').each( function(d){
+          d3.select(this).property("checked", false);
+        })
+        d3.selectAll(".sub-round-table td").each(function (){
+        elem = d3.select(this);
+        elem.style("opacity", 1);
+      });
+        d3.select("#search-input").property("value", "");
+        rows.style("display", null);
+      });
+
+      d3.select(document).on('click', function(event){
+        if(!selectJudgeWrapper.node().contains(event.target)){
+          optionsJudgeContainer.style('display', 'none');
+        }
+        if(!selectPositionWrapper.node().contains(event.target)){
+          optionsPositionContainer.style('display', 'none');
+        }
+        if(!selectNumberWrapper.node().contains(event.target)){
+          optionsNumberContainer.style('display', 'none');
+        }
+         });
+
+      d3.selectAll(".sub-round-table td").on("mouseover", function() {
+        var current = d3.select(this).attr("judge");
+        var numberLabel = d3.select(this).append("div").attr("class", "info-label").text(function() {
+          var elem = judges.find(function(d) { return d.lett === current; });
+          return elem.nome;
+        }).style("height", "10px");
+        numberLabel.transition().duration(200).style("opacity", 1);
+      }).on("mouseout", function() {
+        d3.select(this).selectAll(".info-label").remove();
+      });
+  });
+
+}
+</script>
+<script type="text/javascript">
+let chacha;
+d3.dsv(";", "http://localhost:3333/C.csv").then(data => {
+    chacha = data.map(d => ({ num: d.N, pos: d.Place,
+    A: d.A,
+    B: d.B,
+    C: d.C,
+    D: d.D,
+    E: d.E,
+    F: d.F,
+    G: d.G,
+    H: d.H,
+    I: d.I,
+    J: d.J,
+    K: d.K
+     }));
+});
+let samba;
+ d3.dsv(";", "http://localhost:3333/S.csv").then(data => {
+    samba = data.map(d => ({ num: d.N, pos: d.Place,
+    A: d.A,
+    B: d.B,
+    C: d.C,
+    D: d.D,
+    E: d.E,
+    F: d.F,
+    G: d.G,
+    H: d.H,
+    I: d.I,
+    J: d.J,
+    K: d.K
+     }));
+});
+  let rumba;
+ d3.dsv(";", "http://localhost:3333/R.csv").then(data => {
+    rumba = data.map(d => ({ num: d.N, pos: d.Place,
+    A: d.A,
+    B: d.B,
+    C: d.C,
+    D: d.D,
+    E: d.E,
+    F: d.F,
+    G: d.G,
+    H: d.H,
+    I: d.I,
+    J: d.J,
+    K: d.K
+     }));
+});
+let paso;
+ d3.dsv(";", "http://localhost:3333/PD.csv").then(data => {
+    paso = data.map(d => ({ num: d.N, pos: d.Place,
+    A: d.A,
+    B: d.B,
+    C: d.C,
+    D: d.D,
+    E: d.E,
+    F: d.F,
+    G: d.G,
+    H: d.H,
+    I: d.I,
+    J: d.J,
+    K: d.K
+     }));
+});
+let jive;
+ d3.dsv(";", "http://localhost:3333/J.csv").then(data => {
+    jive = data.map(d => ({ num: d.N, pos: d.Place,
+    A: d.A,
+    B: d.B,
+    C: d.C,
+    D: d.D,
+    E: d.E,
+    F: d.F,
+    G: d.G,
+    H: d.H,
+    I: d.I,
+    J: d.J,
+    K: d.K
+     }));
+});
+
+
+
+
+    
+
+const width = 1000;
+const height = 500;
+const marginTop = 10;
+const marginRight = 10;
+const marginBottom = 20;
+var marginLeft = 40;
+let svg;
+svg = d3.select("#finalVis")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", [0, 0, width, height])
+    .attr("style", "max-width: 100%; height: auto;");
+
+
+const color = d3.scaleOrdinal()
+      .unknown("#ccc");
+
+const svgLegend = d3.select("#legend")
+    .append("svg")
+    .attr("width", width) 
+    .attr("height", 50); 
+
+colors = [
+  "#ff7f7f", 
+  "#ffaa80", 
+  "#ffeb80", 
+  "#80ff80", 
+  "#80ffff", 
+  "#80aaff", 
+  "#ff80ff"  
+];
+
+colorMapping = {
+  "#ff7f7f":"#ffadad",
+  "#ffaa80":"#ffd6a5",
+  "#ffeb80":"#fdffb6",
+  "#80ff80":"#caffbf",
+  "#80ffff":"#9bf6ff",
+  "#80aaff":"#a0c4ff",
+  "#ff80ff":"#ffc6ff"
+};
+
+danceMapping = {
+  'c' : 'ChaChaCha',
+  's' : 'Samba',
+  'r' : 'Rumba',
+  'p' : 'Paso Doble',
+  'j' : 'Jive'
+};
+
+
+function drawFinal(dataset, title, prima){
+marginLeft = 40;
+const x = d3.scaleBand()
+      .range([marginLeft, width - marginRight])
+      .paddingInner(0.1);
+const y = d3.scaleLinear()
+      .rangeRound([height - marginBottom, marginTop]);
+  d3.select("#finalContainer").style("margin", null);
+  d3.select("#home-button-container")
+    .transition()
+    .duration(1000)
+    .style("margin", "50px 70px 0 0");
+
+  var buttons = d3.selectAll(".home-button");
+   buttons.each(function(){
+
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .style("height", "50px")
+      .style("margin", "10px 0 0 10px");
+    
+    });
+  var toHide = d3.selectAll("#home-visualization, #small-home-visualization, #controls , #round-table-container, #resetButton");
+  toHide.transition()
+              .duration(1000)
+              .style("opacity", 0)
+              .style("display", 'none')
+              .style("visibility", "hidden");      
+  var toShow = d3.selectAll("#finalVis, #changeDance, .title, .subtitle, #legend");
+  toShow.each(function() {
+  d3.select(this).transition().duration(1000)
+      .style("opacity", 1)
+      .style("display", null)
+      .style("visibility", "visible");
+});
+if(prima){
+  svg.selectAll("*").remove();
+  svgLegend.selectAll("*").remove();
+}
+  var toRemove = d3.selectAll("#search-input, #filter1, #filter2, #filter3, #round-table-container");
+  toRemove.each(function(){
+    d3.select(this).selectAll("*").transition().duration(1000).style("visibility", "hidden");
+    d3.select(this).selectAll("*").remove();
+  })
+  d3.selectAll(".subtitle").text('Final');
+
+
+
+const singlePosition = Array.from(new Set(dataset.map(function(d) { return d.pos; }))).sort((a, b) => a - b);
+
+
+const indexData = dataset.map(d => {
+  const counts = singlePosition.reduce((posCounts, pos) => {
+    const count = Object.values(d).slice(2).filter(value => value === pos).length;
+    posCounts[pos] = count ;
+    return posCounts;
+  }, {});
+  return { num: d.num, pos: counts };
+});
+
+console.log(indexData)
+
+
+const index = d3.index(indexData, d => d.num);
+
+
+const stackedData = d3.stack()
+  .keys(singlePosition) 
+  .value((d, key) => d.pos[key]) 
+  (indexData);
+
+svg.selectAll(".x-axis").remove();
+svg.selectAll(".y-axis").remove();
+
+x.domain(dataset.map(d => d.num));
+
+y.domain([0, d3.max(stackedData, d => d3.max(d, d => d[1]))]);
+
+
+
+const formatValue = x => isNaN(x) ? "N/A" : x.toLocaleString("en");
+
+
+svg.append("g")
+   .selectAll("g")
+   .data(stackedData)
+   .join("g")
+   .attr("fill", d => colors[d.key - 1])
+   .selectAll("rect")
+   .data(d => d.map(v => (v.key = d.key, v)))
+   .join("rect")
+   .attr("x", d => x(d.data.num))
+   .attr("y", d => y(d[1]))
+   .attr("width", x.bandwidth())
+   .on("mouseover", function(event, d) {
+          d3.select(this).attr("fill", function() {
+          var vecchio = colors[d.key - 1];
+           return colorMapping[vecchio];
+           }); 
+           dataRow = dataset.find(c => c['num'] === d.data.num);
+           const giudici = Object.keys(dataRow).slice(2).filter(key => dataRow[key] === d.key);
+          const barX = x(d.data.num) + x.bandwidth() / 2;
+          const barY = y(d[1]) + (y(d[0]) - y(d[1])) / 2;
+          giudici.forEach((p, i) => {
+             const barY = (y(d[1]) + (y(d[0]) - y(d[1])) / 2) - ((giudici.length - 1) / 2) * 22;
+            svg.append("text")
+            .attr("class", "bar-text")
+            .attr("x", barX)
+            .attr("y", barY + i * 22) 
+            .attr("dy", "0.35em")
+            .attr("text-anchor", "middle")
+            .style("font-size", '14px')
+            .text(function() {
+                elem = judges.find(k => k['lett'] === p)
+                return elem.nome;
+            });
+    });
+})
+.on("mouseout", function() {
+    d3.select(this).attr("fill", d => colors[d.key - 1]); 
+    svg.selectAll(".bar-text").remove(); 
+    
+})
+.transition()
+.duration(1000)
+.attr("height", d => y(d[0]) - y(d[1]));
+
+svg.append("g")
+      .attr("transform", `translate(0,${height - marginBottom})`)
+      .attr("class", "x-axis")
+      .call(d3.axisBottom(x).tickSizeOuter(0))
+      .call(g => g.selectAll(".domain").remove());
+
+svg.append("g")
+      .attr("transform", `translate(${marginLeft},0)`)
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+      .call(g => g.selectAll(".domain").remove());
+
+
+
+const svgTitle = svgLegend.select(".chart-title");
+if (!svgTitle.empty()) {
+        
+        svgTitle.text(title);
+    } else {
+       
+        svgLegend.append("text")
+            .attr("class", "chart-title")
+            .attr("transform", "translate(200, 35)")
+            .attr("font-size", "24px")
+            .text(title);
+    }
+              
+
+const legend = svgLegend.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(350, 20)"); 
+
+
+legend.selectAll(".legendItem")
+    .data(colors)
+    .enter().append("g")
+    .attr("class", "legendItem")
+    .attr("transform", (d, i) => "translate(" + i * 50 + ",0)");
+console.log(svgLegend);
+
+legend.selectAll(".legendItem")
+    .append("rect")
+    .attr("width", 50)
+    .attr("height", 18)
+    .style("fill", d => d);
+
+
+var i = 0;
+legend.selectAll(".legendItem")
+    .append("text")
+    .attr("x", 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "start")
+    .text(function(){i = i+1; return i;}); 
+  
+
+}
+
+let open = false;
+
+function drawTotalFinal(title, prima) {
+  marginLeft = 40;
+  const x = d3.scaleBand()
+    .range([marginLeft, width - marginRight])
+    .paddingInner(0.1);
+  const y = d3.scaleLinear()
+    .rangeRound([height - marginBottom, marginTop]);
+
+  d3.select("#finalContainer").style("margin", null);
+  d3.select("#home-button-container")
+    .transition()
+    .duration(1000)
+    .style("margin", "50px 70px 0 0");
+
+  var buttons = d3.selectAll(".home-button");
+  buttons.each(function () {
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .style("height", "50px")
+      .style("margin", "10px 0 0 10px");
+  });
+
+  var toHide = d3.selectAll("#home-visualization, #small-home-visualization, #controls, #round-table-container, #resetButton");
+  toHide.transition()
+    .duration(1000)
+    .style("opacity", 0)
+    .style("display", 'none')
+    .style("visibility", "hidden");
+
+  var toShow = d3.selectAll("#finalVis, #changeDance, .title, .subtitle, #legend");
+  toShow.each(function () {
+    d3.select(this).transition().duration(1000)
+      .style("opacity", 1)
+      .style("display", null)
+      .style("visibility", "visible");
+  });
+
+  if (prima) {
+    svg.selectAll("*").remove();
+    svgLegend.selectAll("*").remove();
+  }
+
+  var toRemove = d3.selectAll("#search-input, #filter1, #filter2, #filter3, #round-table-container");
+  toRemove.each(function () {
+    d3.select(this).selectAll("*").transition().duration(1000).style("visibility", "hidden");
+    d3.select(this).selectAll("*").remove();
+  });
+  d3.selectAll(".subtitle").text('Final');
+
+  const singlePosition = Array.from(new Set(chacha.map(function (d) { return d.pos; }))).sort((a, b) => a - b);
+
+  const datasets = [chacha, samba, rumba, paso, jive];
+
+  function aggregateDataByNum(datasets) {
+    let aggregatedData = {};
+
+    datasets.forEach(dataset => {
+      dataset.forEach(row => {
+        const num = row.num;
+        if (!aggregatedData[num]) {
+          aggregatedData[num] = {};
+        }
+
+        Object.keys(row).forEach(key => {
+          if (key !== 'num' && key !== 'pos') {
+            const value = row[key];
+            if (!aggregatedData[num][value]) {
+              aggregatedData[num][value] = 0;
+            }
+            aggregatedData[num][value]++;
+          }
+        });
+      });
+    });
+
+    let resultData = Object.keys(aggregatedData).map(num => ({
+      num: num,
+      pos: aggregatedData[num]
+    }));
+
+    resultData.sort((a, b) => {
+      const orderA = ranking.find(row => row['N'] === a.num)['Place'];
+      const orderB = ranking.find(row => row['N'] === b.num)['Place'];
+      return orderA - orderB;
+    });
+    return resultData;
+  }
+
+  const resultData = aggregateDataByNum(datasets);
+
+  const index = d3.index(resultData, d => d.num);
+
+  const stackedData = d3.stack()
+    .keys(singlePosition)
+    .value((d, key) => d.pos[key])
+    (resultData);
+
+  svg.selectAll(".x-axis").remove();
+  svg.selectAll(".y-axis").remove();
+
+  x.domain(resultData.map(d => d.num));
+
+  y.domain([0, d3.max(stackedData, d => d3.max(d, d => d[1]))]);
+
+  const formatValue = x => isNaN(x) ? "N/A" : x.toLocaleString("en");
+
+  let originalHeight = 0;
+
+
+  
+
+
+
+  svg.append("g")
+    .selectAll("g")
+    .data(stackedData)
+    .join("g")
+    .attr("fill", d => colors[d.key - 1])
+    .selectAll("rect")
+    .data(d => d.map(v => (v.key = d.key, v)))
+    .join("rect")
+    .attr("x", d => x(d.data.num))
+    .attr("y", d => y(d[1]))
+    .attr("height", function(d){ val = y(d[0]) - y(d[1]);if(val){return val} else{return 0};})
+    .attr("width", x.bandwidth())
+    .on("mouseover", function(event, d) {
+          num = d[1]-d[0];
+          const barX = x(d.data.num) + x.bandwidth() / 2;
+          const barY = y(d[1]) + (y(d[0]) - y(d[1])) / 2;
+            svg.append("text")
+            .attr("class", "bar-text")
+            .attr("x", barX)
+            .attr("y", barY) 
+            .attr("dy", "0.35em")
+            .attr("text-anchor", "middle")
+            .style("font-size", '20px')
+            .text(num);
+    })
+    .on("mouseout", function() {
+    svg.selectAll(".bar-text").remove();
+    
+})
+    .on("click", function (event, d) {
+      if(open){
+        open = false;
+         drawTotalFinal(title, prima);
+      }
+        svg.selectAll(".bar-text").remove();
+      
+        function estraiGiudici(dataset) {
+          riga = dataset.find(c => c['num'] === d.data.num);
+          return Object.keys(riga).slice(2).filter(key => riga[key] === d.key);
+        }
+
+        balliEgiudici = {
+          c: estraiGiudici(chacha),
+          s: estraiGiudici(samba),
+          r: estraiGiudici(rumba),
+          p: estraiGiudici(paso),
+          j: estraiGiudici(jive)
+        };
+
+        const validKeys = Object.keys(balliEgiudici).filter(key => Array.isArray(balliEgiudici[key]) && balliEgiudici[key].length > 0);
+
+        d3.select(this).attr("fill", function () {
+          var vecchio = colors[d.key - 1];
+          return colorMapping[vecchio];
+        });
+        d3.select(this.parentNode).raise();
+        d3.select(this).raise();
+
+        let currentY;
+        if (originalHeight === 0) {
+          originalHeight = y(d[0]) - y(d[1]);
+          const newHeight = 60;
+              if (newHeight > d3.select(this).attr("height")) {
+               correctHeight = newHeight;
+              }else
+              correctHeight = d3.select(this).attr("height");
+          d3.select(this).transition().duration(500)
+            .attr("height", correctHeight)
+            .attr("width", x.bandwidth() * validKeys.length + 1)
+            .attr("x", function () {
+              if ((d3.select(this).attr("x") < window.innerWidth / 3) && (d3.select(this).attr("x") > window.innerWidth / 4)) {
+                return d3.select(this).attr("x") - x.bandwidth() * (validKeys.length - 1) / 2;
+              } else {
+                if (d3.select(this).attr("x") < window.innerWidth / 3)
+                  return d3.select(this).attr("x");
+                else
+                  return d3.select(this).attr("x") - x.bandwidth() * (validKeys.length - 1);
+              }
+            })
+            .attr("y", function(){
+              console.log(correctHeight);
+              current = svg.attr("height") - d3.select(this).attr("y")-correctHeight;
+              if(current <= 30 && correctHeight<100){
+                diff = 30 - (svg.attr("height") - d3.select(this).attr("y")-correctHeight);
+                currentY = d3.select(this).attr("y") - diff;
+                return d3.select(this).attr("y") - diff;
+              } else{
+                currentY = d3.select(this).attr("y");
+              return d3.select(this).attr("y");
+            }
+            })
+            .on("end", function(){
+
+          const rectWidth = x.bandwidth() * validKeys.length;
+          let rectX = +d3.select(this).attr("x");
+          
+
+
+          const group = d3.select(this.parentNode).append("g")
+            .attr("class", "table-group")
+            .attr("transform", `translate(${rectX}, ${currentY})`);
+
+          const cellWidth = x.bandwidth();
+          const cellHeight = 20;
+
+          const tableWidth = cellWidth * validKeys.length;
+
+          const tableX = (rectWidth - tableWidth) ;
+
+          
+       
+          group.selectAll("text.header")
+            .data(validKeys)
+            .enter()
+            .append("text")
+            .attr("class", "header")
+            .attr("x", (d, i) => (i * cellWidth) + cellWidth / 2 - (danceMapping[d].length*8/2))
+            .attr("y", cellHeight)
+            .text(d => danceMapping[d])
+            .style("font-weight", "bold")
+            .style("fill", "black");
+
+          const maxLength = d3.max(validKeys.map(key => balliEgiudici[key].length));
+
+          for (let i = 0; i < maxLength; i++) {
+            validKeys.forEach((key, colIndex) => {
+              group.append("rect")
+                .attr("x", colIndex * cellWidth)
+                .attr("y", (i + 1) * cellHeight + 10)
+                .attr("width", cellWidth)
+                .attr("height", cellHeight)
+                .attr("fill", function () {
+                  var vecchio = colors[d.key - 1];
+                  return colorMapping[vecchio];
+                });
+
+              if (balliEgiudici[key][i] !== undefined) {
+                group.append("text")
+                  .attr("x", colIndex * cellWidth + cellWidth / 2)
+                  .attr("y", (i + 1) * cellHeight + 25)
+                  .attr("text-anchor", "middle")
+                  .attr("alignment-baseline", "middle")
+                  .text(function () {
+                    elem = judges.find(k => k['lett'] === balliEgiudici[key][i]);
+                    return elem.nome;
+                  })
+                  .style("fill", "black")
+                  .style("font-size", 13);
+              }
+              open = true;
+            });
+          }
+          });
+        }
+      
+      const triggeredRect = d3.select(this);
+      d3.select(this.parentNode).on("click", function () {
+      if(open){
+      triggeredRect.attr("fill", d => colors[d.key - 1]);
+      triggeredRect.transition().duration(1000)
+        .attr("x", x(d.data.num))
+        .attr("y", d => y(d[1]))
+        .attr("width", x.bandwidth())
+        .attr("height", d => y(d[0]) - y(d[1]));
+        open = false;
+      d3.select(".table-group").remove();
+      originalHeight = 0;
+      triggeredRect.attr("fill", function () {
+        var vecchio = colorMapping[triggeredRect.attr("fill")];
+        return colors[vecchio - 1];
+      }); 
+    }
+    }); 
+    
+    });
+    
+
+  svg.append("g")
+    .attr("transform", `translate(0,${height - marginBottom})`)
+    .attr("class", "x-axis")
+    .call(d3.axisBottom(x).tickSizeOuter(0))
+    .call(g => g.selectAll(".domain").remove());
+
+  svg.append("g")
+    .attr("transform", `translate(${marginLeft},0)`)
+    .attr("class", "y-axis")
+    .call(d3.axisLeft(y).ticks(null, "s"))
+    .call(g => g.selectAll(".domain").remove());
+
+  const svgTitle = svgLegend.select(".chart-title");
+  if (!svgTitle.empty()) {
+    svgTitle.text(title);
+  } else {
+    svgLegend.append("text")
+      .attr("class", "chart-title")
+      .attr("transform", "translate(200, 35)")
+      .attr("font-size", "24px")
+      .text(title);
+  }
+
+  const legend = svgLegend.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(350, 20)");
+
+  legend.selectAll(".legendItem")
+    .data(colors)
+    .enter().append("g")
+    .attr("class", "legendItem")
+    .attr("transform", (d, i) => "translate(" + i * 50 + ",0)");
+
+  legend.selectAll(".legendItem")
+    .append("rect")
+    .attr("width", 50)
+    .attr("height", 18)
+    .style("fill", d => d);
+
+  let i = 0;
+  legend.selectAll(".legendItem")
+    .append("text")
+    .attr("x", 24)
+    .attr("y", 9)
+    .attr("dy", ".35em")
+    .style("text-anchor", "start")
+    .text(function () { i = i + 1; return i; });
+}
+
+
+
+
+</script>
+</body>
+</html>

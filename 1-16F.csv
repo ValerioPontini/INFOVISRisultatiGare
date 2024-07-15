@@ -1,0 +1,99 @@
+N;Sum;Place;C;S;R;PD
+;;;A B C D E F G H I J K;A B C D E F G H I J K;A B C D E F G H I J K;A B C D E F G H I J K
+29;43;1;XXXXXXXXXXX;XXXXXXXXX-X;XXXXXXXXXXX;XXXXXXXXXXX
+13;42;2;XXXXXXX-XXX;XXXXX-XXXXX;XXXXXXXXXXX;XXXXXXXXXXX
+19;41;3 - 6;XXXXXXXXXXX;XXX-XXXXXXX;X-XXXXXXXXX;XXXX-XXXXXX
+61;41;3 - 6;X-XXXXXXXXX;XXXXXXX-XXX;XX-XXXXXXXX;XXXXXXXXXXX
+79;41;3 - 6;XXXXXXXX-XX;XXXXXXXXXXX;XXXXXXX-XXX;XXXXXXX-XXX
+126;41;3 - 6;XXXXXXXXXXX;XXXXXXXXXX-;XXXXXXXXX-X;XXXXXXXXX-X
+65;40;7 - 9;X-XX-XXXXXX;XXX-XXX-XXX;XXXXXXXXXXX;XXXXXXXXXXX
+72;40;7 - 9;XX-XXXXXXXX;XXXXXXXXXXX;XX-XXXX-XXX;XX-XXXXXXXX
+103;40;7 - 9;XXXXXXX-XXX;XXXXXXX-XXX;XXXXXXXXXXX;XXXXXX--XXX
+10;38;10 - 11;X-XXXXXXXXX;X-XXXXX-XXX;XXXXXXX-XXX;XXXXXXX--XX
+37;38;10 - 11;X-XXXXX-XXX;X-XXXXXXXXX;XXXXXXXXXXX;X-XXXXX-XX-
+124;36;12;XX-XXXX---X;XXXXXXX-XXX;XXX-XXXXXXX;XXXXXXX-X-X
+59;35;13 - 18;XX-XXXX--XX;XXXXXXX--XX;X--XXX--XXX;XXXXXXXXXXX
+70;35;13 - 18;--X-XXX--XX;--X-XXXXXXX;XXXXXXXXXXX;XXXXXXX-XXX
+85;35;13 - 18;XXXXX-XX-XX;XX-XXXXXXX-;XXX-XXXX-XX;X-X-XXXX-XX
+102;35;13 - 18;XX-XXXX-XXX;XX-XXX--XXX;XX--XXXXXXX;XX-XXX-XXXX
+123;35;13 - 18;XX-XXXX-X-X;XX-XXXX-X-X;XX-XXXXXXXX;XX-XXXXXX-X
+132;35;13 - 18;XXXXX-X--XX;-XXXXXX-XXX;-XXXXXXXXX-;-XXXXXX-XXX
+28;34;19 - 21;XXX--X-XXXX;-XX-XXXXXXX;-XX-XX--XXX;-XXXXXXXXXX
+43;34;19 - 21;X-XXXXX-XXX;XX-XXXX--XX;X--XXXXX-XX;XXXXXXX--XX
+117;34;19 - 21;XXXX-XX-XXX;X-XXXXX-XXX;X-XX-XXXX-X;X-XX-XX-XXX
+54;33;22 - 23;XXX---X-XXX;XXXX-XXXXXX;XX---XXXXXX;XX--XXXX-XX
+64;33;22 - 23;X-X-XXXX--X;XXX-XX--XXX;XXXXXXXXXXX;X--XXXX-X-X
+41;32;24 - 27;XX-XXXXXXX-;X--XXXXX-XX;XXXXXXXX-X-;X--XXXX--X-
+75;32;24 - 27;X-XXXX---XX;X-XXXX-XX-X;X---XXX-XXX;XXX-XXXXXXX
+84;32;24 - 27;X--XXXXXXXX;X--XXX-XXXX;X--X-XX-XXX;X--XXXX-XXX
+128;32;24 - 27;XX-X-XXXXXX;X--X-XX-XXX;XX-X-XX-XXX;XX-X-XX-XXX
+88;31;28;XX-XXXXXXXX;X--XXX---XX;X-XXXX-XXXX;X--XX-X-X-X
+32;30;29;XX--XXXXXXX;X---X-XXXXX;XX--X-X-XXX;X--XX-XX-XX
+36;29;30;XXXXXXXXX--;XX-XXXX---X;X--XXXX-X--;X--XXXXXX--
+68;28;31 - 33;X---XX-X-X-;XX-XXX--XX-;X--XXX--XXX;XX-XXX-XXXX
+95;28;31 - 33;X-XX-XXXX-X;XXXX-XXX--X;X-XX-X-XX-X;X-XX-X----X
+116;28;31 - 33;-XXX-XX--XX;---X-X-X-XX;-X-X-X-XXXX;XXXX-XX-XXX
+8;26;34 - 36;-XXXX-X--X-;--XXXXXX-XX;--X-X--X-XX;--XXX--XXXX
+18;26;34 - 36;-X---XX-XXX;X-X--XXXXXX;--XX-XXXXX-;-X---XXXX--
+112;26;34 - 36;--X-XX-XXXX;X---XX---XX;XX-XXX-X-XX;XXX-X-X---X
+115;25;37;---XX-X--XX;XX----X-XXX;XXX---X-XXX;XXX---X-XXX
+22;24;38 - 39;--X--XXXXXX;-XXX-XXX-XX;----XXX-XXX;------X--XX
+48;24;38 - 39;X--XXX--X--;X--XXX--XXX;X---XX---X-;XX-XXX--XXX
+97;23;40;XX--X--XXX-;--XX----XX-;XXXX--XXXX-;X-XX----XX-
+44;22;41 - 43;X----XX---X;X-XX-X-X---;X-XX-X----X;XXXX-XXX--X
+110;22;41 - 43;XXXXX---XXX;XXX-X-----X;--X-X-----X;XXX-XX----X
+121;22;41 - 43;-XXX----X--;XXXX-XX--X-;XXXX-X-X---;X-XX-X---X-
+109;21;44;X---XX--X-X;XXX-X--XX-X;XXX-------X;X-X-X--X--X
+50;20;45 - 47;X--XX-XX---;X--XX-XX-X-;XX-X--X----;X--X--XX-X-
+66;20;45 - 47;XXXXX-X----;X--X-XXX---;X--X--X----;XX-X--XX-X-
+111;20;45 - 47;--XXX-X---X;-X----X-X--;--XXX-X---X;--XXXXX--XX
+9;19;48 - 49;X--X-X-X---;X--XX-XX---;X--XX---X--;XX-XXX-X---
+52;19;48 - 49;X---X-X---X;-XXX-XX---X;----X-X-X-X;---X--XXX-X
+7;18;50 - 53;-XX---XX-X-;------XXXX-;X------XXX-;X----XX-XX-
+42;18;50 - 53;-X-X-X--XX-;---X-X--XX-;-X-X-X--XX-;---X-X--XX-
+49;18;50 - 53;-XXX--X----;XX-X--XX---;XXXX---X---;X-XX---X---
+127;18;50 - 53;-X-X------X;--XX--X-X-X;-X-X---X--X;--XX--XXX-X
+14;17;54;-X---X--XXX;-----X-XX-X;X----X--X-X;-----XXX--X
+21;16;55 - 59;---X---X-XX;---X--X--XX;---X---X-XX;---X---X-XX
+53;16;55 - 59;--XXX--X---;-X-XX-XX---;X-X-XX-----;----X--XX--
+58;16;55 - 59;-----XXX---;-X---X--X-X;XX-X--XX---;-X---XX-X--
+74;16;55 - 59;--X--XX-XX-;------X-XX-;-----XX-XXX;--------XXX
+92;16;55 - 59;--XX-X-X---;--X--XXX---;--X--X---XX;--X-XXX----
+4;15;60 - 65;XX-XX-X--X-;-X----XX-X-;----X-XX-X-;---------X-
+25;15;60 - 65;X-X-X--X-X-;X-X--------;X-X-X-X----;XXX----X---
+51;15;60 - 65;-XX----XXXX;---------X-;-----X-XX-X;-X---X--X-X
+76;15;60 - 65;X-X-----X-X;XXXX-X----X;--X---X-X--;-X---X-----
+98;15;60 - 65;XX---X----X;-XXX-------;--X--X-X--X;--XX-X----X
+129;15;60 - 65;------X-XX-;XX----X--X-;X-----X--X-;XX----X-XX-
+30;14;66 - 68;-----X-X---;-X--XXX----;-X-X-XX----;-X-X--X--X-
+31;14;66 - 68;--X--X----X;-XX----XX-X;--X--------;-XX----XX-X
+62;14;66 - 68;X-XXX------;X-X-X------;-XX-X---X--;--X-X--X---
+35;13;69 - 71;-X---X-XX--;-XX-----X--;-XX--X-----;XXX--------
+39;13;69 - 71;--XX----X--;--X----XX--;-XX---XX---;-XX-----X--
+45;13;69 - 71;----X---X--;----XX---X-;-XX-X--X-X-;----X---XX-
+46;12;72 - 74;-X-------X-;XX------XXX;-XX------X-;--------XX-
+87;12;72 - 74;XX------X--;--X-----X--;-X-----XX--;-X-----XXX-
+131;12;72 - 74;-X-----X---;-XX-X----X-;-X-XX--X---;-XX--------
+11;11;75 - 79;--X----X---;----X--X---;-XX-X--X---;--X-X--X---
+12;11;75 - 79;-XX-X------;--X----X---;-XX---XX---;--X----X---
+15;11;75 - 79;--X-X--X---;---XX--X---;-X--X--X---;----X--X---
+91;11;75 - 79;-X--X--XX--;----X---X--;----X---X--;-X--X---X--
+107;11;75 - 79;-X-------X-;-XXX---X---;-X-X-----X-;-X-----X---
+77;10;80 - 82;-----XXX---;-X----XX---;--X---XX---;-------X---
+94;10;80 - 82;----X------;XXX-X--X---;----X------;--X-X--X---
+106;10;80 - 82;-X-----XX--;-X-----XX--;-------XX--;-X-----X---
+1;9;83 - 86;--X----X---;--X----X---;--X----XX--;--X----X---
+82;9;83 - 86;-XX----X---;--X----X---;-XX----X---;-------X---
+96;9;83 - 86;-X---------;-X-----X---;-X-X---X---;-X-----X-X-
+133;9;83 - 86;-X-X-------;---X-------;---X--X----;-XX---X--X-
+90;8;87 - 88;X-X----X---;--X----X---;--XX-------;--X--------
+119;8;87 - 88;----X---X-X;----X------;--X-X------;----X--X---
+26;7;89 - 90;-----------;-------X--X;---X--X---X;---XX------
+63;7;89 - 90;--X----XXX-;-----------;-------X-X-;--------X--
+100;6;91 - 92;-------X---;----X--X---;----X------;----XX-----
+130;6;91 - 92;-X-X---XX--;-----------;-----------;-X-----X---
+86;5;93 - 94;-------X---;-X-----X---;-X---------;-------X---
+89;5;93 - 94;------XX---;--------X--;-----------;--X---X----
+6;4;95;-----------;-X-----X---;-----------;----X--X---
+71;3;96;-------XX--;--------X--;-----------;-----------
+20;0;97;X-XXXXX-XXX;X-XXXXX-XXX;X-XXXXX-XXX;X-XXXXX-XXX
